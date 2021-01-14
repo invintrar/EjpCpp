@@ -1,5 +1,5 @@
 // Fig. 9.1: Tiempo.h
-// Definicion de la clase Tiempo.
+// Clase Tiempo que contiene un contructor con argumentos predeterminados.
 // Las funciones miembro estan definidas en Tiempo.cpp
 
 // evita multiples inclusion del encabezado
@@ -10,8 +10,19 @@
 class Tiempo
 {
     public:
-        Tiempo(); // constructor
+        explicit Tiempo( int = 0, int = 0, int = 0); // constructor predeterminado
+
+        // funciones "establecer"
         void establecerTiempo( int, int, int ); // establece hora, minuto y segundo
+        void establecerHora( int ); // establece la hora ( despues de la validacion )
+        void establecerMinuto( int ); // establece el minuto ( despues de la validacion )
+        void establecerSegundo( int ); // estable el segundo ( despues de la validacion )
+
+        // funciones "obtener"
+        unsigned int obtenerHora() const; // devuelve la hora
+        unsigned int obtenerMinuto() const; // devuelve el minuto
+        unsigned int obtenerSegundo() const; // devuelve el segundo 
+
         void imprimirUniversal() const; // imprime la hora en formato universal
         void imprimirEstandar() const; // imprime la hora en formato estandar
     private:
